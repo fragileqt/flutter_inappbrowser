@@ -629,7 +629,10 @@ public class SwiftFlutterPlugin: NSObject, FlutterPlugin {
             if let url = arguments["url"] as? String {
                 let headers = (arguments["headers"] as? [String: String])!
                 do {
-                    try webViewController!.webView.loadFileURL(url: url, allowingReadAccessTo: url)
+                   let url2 = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory:"main")!
+                   if #available(iOS 9.0, *) {
+                    try webViewController!.webView.loadFileURL(url2, allowingReadAccessTo: url2)
+                   }
                 }
                 catch let error as NSError {
                     dump(error)

@@ -202,6 +202,7 @@ public class InAppWebView extends WebView {
   }
 
   public void loadUrl(String url, Map<String, String> headers, MethodChannel.Result result) {
+    clearAllCache();
     if (!url.isEmpty()) {
       loadUrl(url, headers);
     } else {

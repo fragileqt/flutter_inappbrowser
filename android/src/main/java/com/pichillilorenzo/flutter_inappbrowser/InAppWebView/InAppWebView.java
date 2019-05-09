@@ -166,6 +166,8 @@ public class InAppWebView extends WebView {
 
     settings.setDatabaseEnabled(options.databaseEnabled);
     settings.setDomStorageEnabled(options.domStorageEnabled);
+    settings.setAllowFileAccessFromFileURLs(true);
+    settings.setAllowUniversalAccessFromFileURLs(true);
 
     if (!options.userAgent.isEmpty())
       settings.setUserAgentString(options.userAgent);

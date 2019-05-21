@@ -1000,14 +1000,14 @@ class InAppWebViewController {
   ///...
   ///```
   Future<void> loadFile(String assetFilePath, {Map<String, String> headers = const {}}) async {
-    assert(assetFilePath != null && assetFilePath.isNotEmpty);
+    //assert(assetFilePath != null && assetFilePath.isNotEmpty);
     Map<String, dynamic> args = <String, dynamic>{};
-    if (_inAppBrowserUuid != null) {
+    /*if (_inAppBrowserUuid != null) {
       _inAppBrowser._throwIsNotOpened(message: 'Cannot laod $assetFilePath!');
       args.putIfAbsent('uuid', () => _inAppBrowserUuid);
     }
     args.putIfAbsent('url', () => assetFilePath);
-    args.putIfAbsent('headers', () => headers);
+    args.putIfAbsent('headers', () => headers);*/
     await _channel.invokeMethod('loadFile', args);
   }
 

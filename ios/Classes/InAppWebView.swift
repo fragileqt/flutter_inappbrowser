@@ -283,13 +283,13 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
     }
     
     public func loadFile(url: String, headers: [String: String]?) throws {
-        loadFileURL(url, allowingReadAccessTo: url)
-        /*let key = SwiftFlutterPlugin.registrar!.lookupKey(forAsset: url)
-        let assetURL = Bundle.main.url(forResource: key, withExtension: nil)
-        if assetURL == nil {
-            throw NSError(domain: url + " asset file cannot be found!", code: 0)
+        let uri = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "mail")!
+        let uri2 = Bundle.main.bundleURL;
+        if #available(iOS 9.0, *) {
+            loadFileURL(uri, allowingReadAccessTo: uri2)
+        } else {
+            // Fallback on earlier versions
         }
-        loadUrl(url: assetURL!, headers: headers)*/
     }
     
     func setOptions(newOptions: InAppWebViewOptions, newOptionsMap: [String: Any]) {
